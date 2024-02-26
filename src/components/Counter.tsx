@@ -27,7 +27,7 @@ function Counter() {
             alignItems="center"
             justifyContent="center"
             sx={{ minHeight: '100vh', minWidth: '100vw' }}>
-            <Card sx={{ minHeight: '100vh', maxHeight: '-webkit-fill-available;', minWidth: '100vw', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+            <Card sx={{ minHeight: '100dvh', minWidth: '100vw', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                 <Typography fontSize={120} gutterBottom variant="h2" component="div" textAlign="center" marginTop='15rem'>
                     {counter}
                 </Typography>
