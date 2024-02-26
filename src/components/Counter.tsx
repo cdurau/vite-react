@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import {  Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -9,7 +9,16 @@ import RemoveSharpIcon from '@mui/icons-material/RemoveSharp';
 import Typography from '@mui/material/Typography';
 
 function Counter() {
-    const [counter, setCounter] = useState(0)
+    const storedCounter = JSON.parse(localStorage.getItem('counter') || '0')
+
+    const [counter, setCounter] = useState(parseInt(storedCounter))
+
+    useEffect(() => {
+        localStorage.setItem('counter', JSON.stringify(counter))
+
+
+
+    }, [counter]);
 
     const changeCounter = (val: number) => {
         if (counter <= 0 && val == -1) {
