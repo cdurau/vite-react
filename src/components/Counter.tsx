@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Box, CardHeader, CardMedia, Grid, Icon } from '@mui/material';
+import {  Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Container from '@mui/material/Container';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import RemoveSharpIcon from '@mui/icons-material/RemoveSharp';
 import Typography from '@mui/material/Typography';
@@ -28,8 +27,8 @@ function Counter() {
             alignItems="center"
             justifyContent="center"
             sx={{ minHeight: '100vh', minWidth: '100vw' }}>
-            <Card sx={{ maxWidth: 345 }}>
-                <Typography gutterBottom variant="h2" component="div" textAlign="center" marginTop='1rem'>
+            <Card sx={{ minHeight: '100vh', minWidth: '100vw', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+                <Typography fontSize={120} gutterBottom variant="h2" component="div" textAlign="center" marginTop='15rem'>
                     {counter}
                 </Typography>
                 <CardContent>
