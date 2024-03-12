@@ -1,17 +1,26 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Counter from './components/Counter';
 
 
-function App() {
+function App({ pageTitle }: { pageTitle: string }) {
+  const [title, setTitle] = useState(pageTitle)
+
   useEffect(() => {
-    document.title = 'Dankbarkeits - Zähler'
+    setTitle(pageTitle)
+
+    document.title = title
   })
 
   return (
     <>
-      <Counter></Counter>
+
+      <Counter title={title} ></Counter>
     </>
   )
+}
+
+App.defaultProps = {
+  pageTitle: "Dankbarkeits - Zähler"
 }
 
 export default App

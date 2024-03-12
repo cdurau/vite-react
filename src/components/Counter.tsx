@@ -8,16 +8,15 @@ import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp
 import RemoveSharpIcon from '@mui/icons-material/RemoveSharp';
 import Typography from '@mui/material/Typography';
 import { DeleteOutline } from '@mui/icons-material';
+import EditIcon from '@mui/icons-material/Edit';
 
-function Counter() {
+function Counter({ title }: { title: string }) {
     const storedCounter = JSON.parse(localStorage.getItem('counter') || '0')
 
     const [counter, setCounter] = useState(parseInt(storedCounter))
 
     useEffect(() => {
         localStorage.setItem('counter', JSON.stringify(counter))
-
-
 
     }, [counter]);
 
@@ -38,12 +37,15 @@ function Counter() {
             justifyContent="center"
             sx={{ minHeight: '100vh', minWidth: '100vw' }}>
             <Card sx={{ minHeight: '100dvh', minWidth: '100vw', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <CardActions sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                    <Button size="small" sx={{ color: 'tomato', padding: '20px' }} onClick={() => changeCounter(-1)}><EditIcon fontSize='medium' /></Button>
+                </CardActions>
                 <Typography fontSize={120} gutterBottom variant="h2" component="div" textAlign="center" marginTop='15rem'>
                     {counter}
                 </Typography>
                 <CardContent>
                     <Typography variant="body2" color="text.secondary" textAlign="center">
-                        Dankbarkeit
+                        {title}
                     </Typography>
                 </CardContent>
                 <CardActions sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
